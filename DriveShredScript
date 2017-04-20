@@ -1,0 +1,4 @@
+lsblk -ld | grep -o '^sd[b-z]' | while read -r filename; do
+    filename="/dev/$filename"
+    shred -fvz "$filename" > "/home/ben/ProjectsInProgress/ShredLogs/$(hdparm -I "$filename" | grep -o 'Serial Number:\s*\S*' | cut -f2 -d: | sed 's/^\s*//').log" 2>&1 &
+done
