@@ -1,4 +1,6 @@
-
+#Thoughts of continued developement
+  #Move failed Shreds to different dir
+  #Make log dir a variable
 lsblk -ld | grep -o '^sd[b-z]' | while read -r filename; do #find the drives needing to be shreded
     filename="/dev/$filename" # Assign one drive path to a variable at a time
     # Part 1: Run shred using variable
